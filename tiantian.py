@@ -46,7 +46,9 @@ def sendGroupInviteMsg(msg,CurUserName):
       CurUserName = msg['FromUserName']
       if CurUserName in settings.mutes: settings.mutes.remove(CurUserName)
     elif(y==99):
-      advertiseQR(CurUserName)
+      advertiseQR0(CurUserName)
+    elif(y==100):
+      advertiseQR1(CurUserName)
 
   xList = re.findall(r'(?:Cs|cs|CS)\d+', msgText)
   addToCourse(xList,msg,CurUserName)

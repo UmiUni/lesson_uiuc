@@ -24,7 +24,8 @@ def init():
   v5= u"回复 4 打开自动回复🐱\n\n"
   v6= u"UIUC 的校友们可以回复课程编号加课程群(如CS225, ECE120, ECON302, Math241, Stat431)\n\n"
   v12=u"回复 99 查看【北美加群小助手Jogchat.com】\n 公众号二维码加硅谷、西雅图、三番、UIUC、Purdue等地群\n"
-  vT =v0+v1+v2+v3+v4+v5+v6+v12
+  v13=u"回复 100 查看 UIUC经济、统计、CS、物理、心理系大家庭小助手。\n"
+  vT =v0+v1+v2+v3+v4+v5+v6+v12+v13
   
   usersDict = {}
   admins = []
