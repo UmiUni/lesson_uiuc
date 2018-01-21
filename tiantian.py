@@ -54,9 +54,13 @@ def sendGroupInviteMsg(msg,CurUserName):
   addToCourse(xList,msg,CurUserName)
   xList = re.findall(r'(?:Stat|STat|STAT|stat)\d+', msgText)
   addToCourse(xList,msg,CurUserName)
-
+  xList = re.findall(r'(?:ECON|econ|Econ)\d+', msgText)
+  addToCourse(xList,msg,CurUserName)
+  xList = re.findall(r'(?:MATH|Math|math|MAth)\d+', msgText)
+  addToCourse(xList,msg,CurUserName)
   if CurUserName not in settings.mutes:
-    itchat.send_msg(settings.vT, CurUserName)
+    if(u'小助手' not in msg['Content']):
+      itchat.send_msg(settings.vT, CurUserName)
   sleep(0.5)
 
 def addToCourse(iL,msg,CurUserName):
