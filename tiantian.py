@@ -29,26 +29,28 @@ def tuling_reply(msg):
 #send group invite msg according to digits
 def sendGroupInviteMsg(msg,CurUserName):
   msgText = msg['Text']
-  msgText = msgText.strip()
   msgText = msgText.replace(" ","")
   x = re.findall(r'\d+', msgText)
   auto = True 
   #print x
   if(len(x) >0):
     y= int(x[0])
-    if(y>=0 and y<=2):
+    if(y>=0 and y<=4):
       pullMembersMore(msg, settings.chatGroups[y], CurUserName)
       sleep(0.5)
-    elif(y==3):
+    elif(y==5):
       CurUserName = msg['FromUserName']
       settings.mutes.append(CurUserName)
-    elif(y==4):
+    elif(y==6):
       CurUserName = msg['FromUserName']
       if CurUserName in settings.mutes: settings.mutes.remove(CurUserName)
     elif(y==99):
       advertiseQR0(CurUserName)
     elif(y==100):
       advertiseQR1(CurUserName)
+    elif(y==101):
+      pullMembersMore(msg, settings.chatGroups[5], CurUserName)
+      sleep(0.5)
 
   xList = re.findall(r'(?:Cs|cs|CS)\d+', msgText)
   addToCourse(xList,msg,CurUserName)
