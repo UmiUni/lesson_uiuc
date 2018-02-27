@@ -20,6 +20,7 @@ settings.init()
 def add_friend(msg):
     itchat.add_friend(**msg['Text'])
     itchat.send_msg(settings.vT, msg['RecommendInfo']['UserName'])
+    sleep(0.5)
     itchat.send_msg(settings.vU, CurUserName)
 
 @itchat.msg_register(itchat.content.TEXT)
@@ -66,6 +67,7 @@ def sendGroupInviteMsg(msg,CurUserName):
   if CurUserName not in settings.mutes:
     if(u'小助手' not in msg['Content']):
       itchat.send_msg(settings.vT, CurUserName)
+      sleep(0.5)
       itchat.send_msg(settings.vU, CurUserName)
   sleep(0.5)
 
