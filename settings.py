@@ -4,6 +4,7 @@ def init():
 
   global chatGroups
   global vT
+  global vU
   global usersDict
   global admins 
   global ADMIN
@@ -31,8 +32,8 @@ def init():
   v9= u"回复 99 查看【北美加群小助手Jogchat.com】\n 公众号二维码加硅谷、西雅图、三番、纽约、Purdue等地群\n\n"
   v10=u"回复 100 查看 UIUC经济、统计、CS、物理、心理系大家庭小助手。\n\n"
   v11=u"回复 101 查看 北美股市Trading技术交流总群1\n\n"
-  vT =v0+v1+v2+v3+v4+v5+v6+v7+v8+v9+v10+v11
-  
+  vT=v0+v1+v2+v3+v4+v5+v6+v7+v8+v9+v10+v11
+  vU=u"回复 5 关闭自动回复🐱\n" 
   usersDict = {}
   admins = []
   mutes = [] 
