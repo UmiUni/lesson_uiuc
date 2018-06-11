@@ -27,6 +27,9 @@ def add_friend(msg):
 def tuling_reply(msg):
   CurUserName = msg['FromUserName']
   sendGroupInviteMsg(msg,CurUserName)
+  if(u'超然管理员' in msg['Content']):
+    settings.admins.append(CurUserName)  
+    itchat.send_msg(u'您已是管理员',CurUserName)
 
 #send group invite msg according to digits
 def sendGroupInviteMsg(msg,CurUserName):
@@ -84,8 +87,16 @@ def addToCourse(iL,msg,CurUserName):
       retVal1 = pullMembersMore(msg, finalC1, CurUserName)
       if not retVal1:
         itchat.send_msg("不好意思，此课程群没有，几分钟内帮你建好😊", CurUserName)
-
     sleep(0.5)
+
+#if group chat msg contains kick ads, start kicking logic
+@itchat.msg_register(TEXT, isGroupChat=True)
+def text_reply(msg):
+  if msg['ActualUserName'] in settings.admins:
+    content = msg['Content']
+    if(content[0]=="@"):
+      if u'广告' in content:
+        delUser(msg['FromUserName'],content,settings.ADMIN)
 
 itchat.run() 
 
