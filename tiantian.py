@@ -22,6 +22,8 @@ def add_friend(msg):
     itchat.send_msg(settings.vT, msg['RecommendInfo']['UserName'])
     sleep(0.5)
     itchat.send_msg(settings.vU, CurUserName)
+    sleep(0.5)
+    itchat.send_msg(settings.v12, msg['RecommendInfo']['UserName'])
 
 @itchat.msg_register(itchat.content.TEXT)
 def tuling_reply(msg):
@@ -72,6 +74,8 @@ def sendGroupInviteMsg(msg,CurUserName):
       itchat.send_msg(settings.vT, CurUserName)
       sleep(0.5)
       itchat.send_msg(settings.vU, CurUserName)
+  sleep(0.5)
+  itchat.send_msg(settings.v12, CurUserName)
   sleep(0.5)
 
 def addToCourse(iL,msg,CurUserName):
